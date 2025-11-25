@@ -610,6 +610,19 @@
 
         clearElement(leaderboardBody);
 
+        if (!list || list.length === 0) {
+            const emptyRow = document.createElement("tr");
+            const emptyCell = document.createElement("td");
+    
+            emptyCell.colSpan = 4;
+            emptyCell.textContent = "Пока нет сохранённых рекордов";
+            emptyCell.classList.add("leaders-empty"); 
+    
+            emptyRow.appendChild(emptyCell);
+            leaderboardBody.appendChild(emptyRow);
+            return;
+        }
+        
         for (let i = 0; i < list.length; i++) {
             const item = list[i];
 
@@ -798,4 +811,5 @@
         btn.dataset.dir = dir;
         return btn;
     }
+
 })();
