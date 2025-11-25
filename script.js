@@ -11,9 +11,6 @@
     let gameOver = false;
     let undoStack = [];
 
-    let touchStartX = 0;
-    let touchStartY = 0;
-
     const gridContainer = document.getElementById('grid-container');
     const uiContainer = document.getElementById('ui-container');
     const gameContainer = document.getElementById('game-container');
@@ -692,42 +689,6 @@
             handleMove(dir);
         });
 
-        gameContainer.addEventListener('touchstart', function (e) {
-            if (!e.touches || e.touches.length === 0) return;
-            const touch = e.touches[0];
-            touchStartX = touch.clientX;
-            touchStartY = touch.clientY;
-        }, { passive: true });
-
-        gameContainer.addEventListener('touchend', function (e) {
-            if (!e.changedTouches || e.changedTouches.length === 0) return;
-            const touch = e.changedTouches[0];
-            const dx = touch.clientX - touchStartX;
-            const dy = touch.clientY - touchStartY;
-
-            const absDx = Math.abs(dx);
-            const absDy = Math.abs(dy);
-            const threshold = 30;
-
-            if (absDx < threshold && absDy < threshold) {
-                return;
-            }
-
-            if (absDx > absDy) {
-                if (dx > 0) {
-                    handleMove('right');
-                } else {
-                    handleMove('left');
-                }
-            } else {
-                if (dy > 0) {
-                    handleMove('down');
-                } else {
-                    handleMove('up');
-                }
-            }
-        }, { passive: true });
-
         newGameBtn.addEventListener('click', function () {
             startNewGame();
         });
@@ -813,3 +774,4 @@
     }
 
 })();
+
