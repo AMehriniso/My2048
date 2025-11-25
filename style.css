@@ -357,6 +357,14 @@ body {
     color: #12355b;
 }
 
+.leaders-empty {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
 .hidden {
     display: none;
 }
@@ -380,4 +388,5 @@ body {
         display: none !important;
     }
 }
+
 
