@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>My 2048</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <header class="top-bar">
+        <h1 class="title">2048</h1>
+        <div id="ui-container" class="ui-container"></div>
+    </header>
+
+    <main class="main">
+        <div id="game-container" class="game-container">
+            <div id="grid-container" class="grid-container"></div>
+
+            <div id="game-over-overlay" class="overlay hidden">
+                <div id="overlay-content" class="overlay-content"></div>
+            </div>
+        </div>
+        <div id="mobile-controls" class="mobile-controls hidden"></div>
+    </main>
+
+    <div id="leaderboard-modal" class="modal hidden">
+        <div id="leaderboard-content" class="modal-content"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background: #e6f2ff; 
+    color: #1f2933;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.page {
+    max-width: 500px;
+    width: 100%;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    gap: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #12355b;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.scores {
+    display: flex;
+    gap: 8px;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;  
+}
+
+.score-box {
+    background: #1f4f7b;
+    color: #e8f1ff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.score-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+.score-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 7px 12px;
+    background: #275ea8;          
+    color: #f4f9ff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, filter 0.1s ease-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-primary {
+    background: #3ea5f5;          
+    color: #0a2540;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.game-container {
+    position: relative;
+    background: #12355b;          
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.cell {
+    border-radius: 6px;
+    background: #c7d5eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    transition: transform 0.1s ease-out;
+    color: #12355b;
+}
+
+.cell.tile-0 {
+    background: #e1e6ed;
+    color: transparent;
+}
+
+.cell.tile-2 {
+    background: #becee4;
+    color: #12355b;
+}
+
+.cell.tile-4 {
+    background: #ada3e1;
+    color: #12355b;
+}
+
+.cell.tile-8 {
+    background: #8e89d8;
+    color: #0a2540;
+}
+
+.cell.tile-16 {
+    background: #74b0ff;
+    color: #0a2540;
+}
+
+.cell.tile-32 {
+    background: #4d9cff;
+    color: #f6fbff;
+}
+
+.cell.tile-64 {
+    background: #2f7be5;
+    color: #f6fbff;
+}
+
+.cell.tile-128 {
+    background: #1f5fb8;
+    color: #f6fbff;
+    font-size: 20px;
+}
+
+.cell.tile-256 {
+    background: #184a8a;
+    color: #f6fbff;
+    font-size: 20px;
+}
+
+.cell.tile-512 {
+    background: #133868;
+    color: #f6fbff;
+    font-size: 20px;
+}
+
+.cell.tile-1024 {
+    background: #102a4b;
+    color: #e0edff;
+    font-size: 18px;
+}
+
+.cell.tile-2048 {
+    background: #0d2038;
+    color: #e0edff;
+    font-size: 18px;
+}
+
+.cell.pop {
+    animation: pop 0.15s ease-out;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 37, 64, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.overlay-content {
+    background: #f7fbff;
+    border-radius: 10px;
+    padding: 24px 32px;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content p {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.overlay-content .btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#save-score-btn {
+    margin-top: 12px;
+}
+
+#restart-btn {
+    margin-top: 12px;
+}
+
+#save-result-message {
+    margin-top: 4px;          
+    font-weight: 500;
+    color: #12355b;
+}
+
+.name-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#player-name {
+    margin-top: 4px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #c0d4f2;
+    width: 100%;
+}
+
+.mobile-controls {
+    max-width: 300px;
+    width: 100%;
+}
+
+.mobile-controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.control-btn {
+    width: 60px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background: #275ea8;
+    color: #f4f9ff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.08s ease-out, filter 0.1s ease-out;
+}
+
+.control-btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 37, 64, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.modal-content {
+    background: #f7fbff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: #12355b;
+}
+
+.leaders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.leaders-table th,
+.leaders-table td {
+    border-bottom: 1px solid #d2e0f5;
+    padding: 4px;
+    text-align: left;
+}
+
+.leaders-table th {
+    font-weight: 600;
+    color: #12355b;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .top-bar {
+        align-items: center;
+    }
+
+    .cell {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    #mobile-controls {
+        display: none !important;
+    }
+}
+
